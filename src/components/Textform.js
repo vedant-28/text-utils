@@ -12,7 +12,17 @@ export default function Textform(props) {
   const handleLowercaseClick = () => {
     let lowerCaseText = text.toLowerCase();
     setText(lowerCaseText);
-  }
+  };
+  const handleAlternateCaseClick = () => {
+    let alternateText = text.toLowerCase().split("");
+    for (var i=0; i<alternateText.length; i += 2) {
+      alternateText[i] = alternateText[i].toUpperCase();
+    }
+    setText(alternateText.join(""));
+  };
+  const handleClearText = () => {
+    setText("");
+  };
   return (
     <>
       <div className="container">
@@ -26,11 +36,17 @@ export default function Textform(props) {
             rows="8"
           ></textarea>
         </div>
-        <button className="btn btn-primary" onClick={handleUppercaseClick}>
-          Convert to Uppercase
+        <button className="btn btn-primary mx-2" onClick={handleUppercaseClick}>
+          CONVERT TO UPPERCASE
         </button>
-        <button className="btn btn-primary mx-3" onClick={handleLowercaseClick}>
-          Convert to Lowercase
+        <button className="btn btn-primary mx-2" onClick={handleLowercaseClick}>
+          convert to lowercase
+        </button>
+        <button className="btn btn-primary mx-2" onClick={handleAlternateCaseClick}>
+          AlTeRnAtE CaSe
+        </button>
+        <button className="btn btn-primary mx-2" onClick={handleClearText}>
+          Clear text
         </button>
       </div>
       <div className="container my-3">

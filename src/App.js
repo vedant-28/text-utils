@@ -5,7 +5,7 @@ import Textform from "./components/Textform";
 function App() {
   return (
     <>
-      <Navbar title="TextUtils" aboutText="About us" />
+      <Navbar title="TextUtils" />
       <div className="container">
         <Textform heading="Enter desired text to transform: " />
       </div>
