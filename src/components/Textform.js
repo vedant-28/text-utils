@@ -23,6 +23,12 @@ export default function Textform(props) {
   const handleClearText = () => {
     setText("");
   };
+  // const handleCopyText = () => {
+  //   var text = document.getElementById("textBox");
+  //   text.select();
+  //   text.setSelectionRange(0, 9999);
+  //   navigator.clipboard.writeText(text.value);
+  // };
   return (
     <>
       <div className="container">
@@ -32,6 +38,7 @@ export default function Textform(props) {
             className="form-control"
             value={text}
             onChange={handleOnChange}
+            style={{backgroundColor: props.mode === "dark" ? "black" : "white", color: props.mode === "dark" ? "white" : "black"}}
             id="myBox"
             rows="8"
           ></textarea>
@@ -45,11 +52,14 @@ export default function Textform(props) {
         <button className="btn btn-primary mx-2" onClick={handleAlternateCaseClick}>
           AlTeRnAtE CaSe
         </button>
+        {/* <button className="btn btn-primary mx-2" onClick={handleCopyText}>
+          Copy text
+        </button> */}
         <button className="btn btn-primary mx-2" onClick={handleClearText}>
           Clear text
         </button>
       </div>
-      <div className="container my-3">
+      <div className="container my-3" id="textBox">
         <h2>Text summery</h2>
         <p>{text.split(" ").length} words, {text.length} characters</p>
         <p>You need {0.008 * text.split(" ").length} minutes to read this text</p>
